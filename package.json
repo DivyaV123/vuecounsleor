@@ -1,0 +1,42 @@
+{
+  "name": "vite-vue3-tailwind-starter",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@mdi/js": "^6.6.96",
+    "@popperjs/core": "^2.11.8",
+    "@vueform/multiselect": "^2.5.2",
+    "audiomotion-analyzer": "^4.0.0",
+    "axios": "^0.27.2",
+    "dayjs": "^1.11.1",
+    "detectrtc": "^1.4.1",
+    "email-validator": "^2.0.4",
+    "js-cookie": "^3.0.1",
+    "jwt-decode": "^3.1.2",
+    "mediasoup-client": "^3.6.82",
+    "pinia": "^2.0.13",
+    "socket.io-client": "^4.6.1",
+    "vue": "^3.2.33",
+    "vue-awesome-paginate": "^1.1.46",
+    "vue-router": "^4.0.15",
+    "vue3-popper": "^1.5.0"
+  },
+  "devDependencies": {
+    "@headlessui/vue": "^1.6.1",
+    "@heroicons/vue": "^1.0.6",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.1",
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.2",
+    "@types/tailwindcss": "^3.0.10",
+    "@vitejs/plugin-vue": "^2.3.2",
+    "autoprefixer": "^10.4.7",
+    "prettier-plugin-tailwindcss": "^0.1.10",
+    "tailwindcss": "^3.0.24",
+    "vite": "^2.9.8"
+  }
+}

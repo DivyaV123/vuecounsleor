@@ -1,0 +1,51 @@
+<script setup>
+import { onBeforeMount, computed, onMounted, ref } from "vue";
+import EscalatedByMe from "@/components/EscalatedByMe.vue";
+import HeroBar from "@/components/HeroBar.vue";
+import CardComponent from "@/components/CardComponent.vue";
+import { counselorStore } from "../stores/counselor";
+import { themeStore } from "../stores/theme";
+import EnqDropoutList from "@/components/EnqDropoutList.vue";
+import { sessionStore } from "../stores/session";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const user = sessionStore();
+const counselor = counselorStore();
+const theme = themeStore();
+const pageLoading = ref(false)
+const enqs = computed(() => {
+  return counselor.enq_dropout.total;
+});
+
+onMounted(async () => {
+  if (!user.loggedIn) {
+    router.push("login");
+  }
+});
+
+onBeforeMount(async () => {
+   pageLoading.value = true
+  await user.checkUser();
+  if (user.loggedIn) {
+    theme.setPageTitle("Enquiry Dropout list");
+    await counselor.getEnqDropout();
+  }
+  pageLoading.value = false
+});
+</script>
+
+<template>
+<card-component :smallerPadding="true"  v-if="pageLoading" class="mb-6">
+    <div wire:loading class="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-700 opacity-75 flex flex-col items-center justify-center">
+	<div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+	<h2 class="text-center text-white text-xl font-semibold">Loading...</h2>
+	<p class="w-1/3 text-center text-white">This may take a few seconds, please wait.</p>
+</div>
+ </card-component>
+  <card-component v-else-if="enqs > 0" class="mb-6" has-table>
+    <enq-dropout-list/>
+  </card-component>
+  <card-component v-else empty />
+</template>
+ 

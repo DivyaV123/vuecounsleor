@@ -1,0 +1,94 @@
+body {
+	@apply pt-14 lg:pl-0;
+  }
+  
+  #app {
+	@apply w-screen transition-position lg:w-auto;
+  }
+  
+  #nav {
+	@apply lg:pl-0;
+  }
+  
+  .dropdown {
+	@apply cursor-pointer;
+  }
+  
+  .clipped, .clipped body {
+	@apply overflow-hidden;
+  }
+  
+  .m-clipped, .m-clipped body {
+	@apply overflow-hidden lg:overflow-auto;
+  }
+  
+  .mobile-aside-active #app, .mobile-aside-active #nav {
+	@apply ml-60 lg:ml-0;
+  }
+  
+  .mobile-aside-right-active #app, .mobile-aside-right-active #nav {
+	@apply -ml-60 lg:ml-0;
+  }
+  
+  .aside-compact body, .aside-compact #nav {
+	@apply lg:pl-0;
+  }
+  
+  .aside-none body, .aside-none #nav {
+	@apply lg:pl-0;
+  }
+  
+  .form-screen body {
+	@apply p-0;
+  }
+  .router-link-active{
+	color: rgb(251 146 60 / var(--tw-text-opacity));
+  }
+  
+  .loader {
+	  border-top-color: #3498db;
+	  -webkit-animation: spinner 1.5s linear infinite;
+	  animation: spinner 1.5s linear infinite;
+  }
+  
+  @-webkit-keyframes spinner {
+	  0% {
+		  -webkit-transform: rotate(0deg);
+	  }
+	  100% {
+		  -webkit-transform: rotate(360deg);
+	  }
+  }
+  
+  @keyframes spinner {
+	  0% {
+		  transform: rotate(0deg);
+	  }
+	  100% {
+		  transform: rotate(360deg);
+	  }
+  }
+
+  .watermark {
+    position: absolute;
+    left: 3%; top: 3%;
+    color: #A8A8A8;
+    opacity: .2;
+    animation: 60s moving-watermark infinite;
+  }
+  
+  @keyframes moving-watermark {
+    0%   {left: 10%; top: 10%;}
+    25% {left: 93%; top: 10%;}
+    50% {left: 93%; top: 93%;}
+    75% {left: 10%; top: 93%;}
+    100% {left: 10%; top: 10%;}
+  }
+  
+  video::-webkit-media-controls-enclosure {
+    display:none !important;
+  }
+
+  [id="div#headlessui-dialog-"]{
+    z-index: 999!important;
+  }
